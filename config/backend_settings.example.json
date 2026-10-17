@@ -1,0 +1,6 @@
+{
+  "cpu_threads": 4,
+  "cache_size": 16000,
+  "early_block": true,
+  "log_level": "INFO"
+}

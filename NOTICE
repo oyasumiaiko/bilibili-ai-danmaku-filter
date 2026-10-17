@@ -1,0 +1,20 @@
+Third-party notices
+
+This repository's original project code is available under the MIT License.
+
+Google DeepMind EmbeddingGemma 2
+  Upstream model: https://huggingface.co/google/embeddinggemma-2
+  Model license: Apache License 2.0 (see the upstream model card and license).
+  The model architecture, name, tokenizer, model weights, and their copyrights
+  remain with their respective rights holders.
+  Model weights and tokenizer binaries are NOT included in this Git repository.
+  Scripts may download and derive a text-only checkpoint locally, preserving
+  the model's applicable license and attribution requirements.
+
+Bilibili / 哔哩哔哩
+  Bilibili's website, API, user-generated comments, branding and trademarks
+  are not distributed as part of this project, and belong to their respective
+  owners. This project is an independent unofficial third-party utility.
+
+Python packages and Tampermonkey are separate third-party dependencies
+subject to their own licenses.

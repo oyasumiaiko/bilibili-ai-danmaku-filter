@@ -1,0 +1,9 @@
+# The model checkpoint must be installed separately (see README).
+# Tested with: Python 3.13, torch 2.14.1, transformers 5.20.1,
+# sentence-transformers 6.1.0, NumPy 2.5.4.
+numpy>=2.0,<3
+torch>=2.6,<3
+transformers>=5.20,<6
+sentence-transformers>=6.1,<7
+safetensors>=0.5,<1
+huggingface-hub>=0.30

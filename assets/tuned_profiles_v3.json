@@ -1,0 +1,1493 @@
+{
+  "version": "preferences-v3",
+  "data_rows": 687,
+  "manual_any_positive": 313,
+  "natural_120": 120,
+  "sources": {
+    "fresh": 221,
+    "anime": 251,
+    "popular": 215
+  },
+  "categories": [
+    "budget_meta",
+    "art_meta",
+    "spoiler_direct",
+    "spoiler_hint",
+    "viewing_directives",
+    "audience_police",
+    "moral_judgement",
+    "plot_nitpick",
+    "anyone_here",
+    "repetitive_noise",
+    "comparative_bashing",
+    "pedantic_correction",
+    "sad_empathy",
+    "ritual_gratitude",
+    "ritual_mourning",
+    "collective_chant",
+    "moral_platitude",
+    "formulaic_emotion",
+    "moral_lecture"
+  ],
+  "single_runtime_mode": "retrieval_raw",
+  "runtime_document_task": "Document",
+  "runtime_document_prefix": "",
+  "runtime_query_task": "SearchQuery",
+  "presets": {
+    "balanced": {
+      "global_threshold_delta": 0.0,
+      "union_metrics": {
+        "tp": 293,
+        "fp": 30,
+        "fn": 20,
+        "tn": 344,
+        "precision": 0.9071,
+        "recall": 0.9361,
+        "f1": 0.9214
+      },
+      "natural_120_metrics": {
+        "tp": 7,
+        "fp": 0,
+        "fn": 6,
+        "tn": 107,
+        "precision": 1.0,
+        "recall": 0.5385,
+        "f1": 0.7
+      },
+      "categories": {
+        "budget_meta": {
+          "cat": "budget_meta",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8385283,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 15,
+            "fp": 2,
+            "fn": 0,
+            "tn": 670,
+            "precision": 0.8824,
+            "recall": 1.0,
+            "f1": 0.9375
+          }
+        },
+        "art_meta": {
+          "cat": "art_meta",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.552251,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 19,
+            "fp": 3,
+            "fn": 3,
+            "tn": 662,
+            "precision": 0.8636,
+            "recall": 0.8636,
+            "f1": 0.8636
+          }
+        },
+        "spoiler_direct": {
+          "cat": "spoiler_direct",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.8502786,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 5,
+            "fp": 2,
+            "fn": 2,
+            "tn": 678,
+            "precision": 0.7143,
+            "recall": 0.7143,
+            "f1": 0.7143
+          }
+        },
+        "spoiler_hint": {
+          "cat": "spoiler_hint",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.849984,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 36,
+            "fp": 1,
+            "fn": 1,
+            "tn": 649,
+            "precision": 0.973,
+            "recall": 0.973,
+            "f1": 0.973
+          }
+        },
+        "viewing_directives": {
+          "cat": "viewing_directives",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.941877,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 23,
+            "fp": 3,
+            "fn": 7,
+            "tn": 654,
+            "precision": 0.8846,
+            "recall": 0.7667,
+            "f1": 0.8214
+          }
+        },
+        "audience_police": {
+          "cat": "audience_police",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.75,
+          "threshold": 0.2100072,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 24,
+            "fp": 11,
+            "fn": 8,
+            "tn": 644,
+            "precision": 0.6857,
+            "recall": 0.75,
+            "f1": 0.7164
+          }
+        },
+        "moral_judgement": {
+          "cat": "moral_judgement",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "top3",
+          "alpha": 0.5,
+          "threshold": 0.4586675,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 19,
+            "fp": 6,
+            "fn": 10,
+            "tn": 652,
+            "precision": 0.76,
+            "recall": 0.6552,
+            "f1": 0.7037
+          }
+        },
+        "plot_nitpick": {
+          "cat": "plot_nitpick",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.15,
+          "threshold": 0.7333399,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 9,
+            "fp": 2,
+            "fn": 1,
+            "tn": 675,
+            "precision": 0.8182,
+            "recall": 0.9,
+            "f1": 0.8571
+          }
+        },
+        "anyone_here": {
+          "cat": "anyone_here",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8684121,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "tn": 680,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "repetitive_noise": {
+          "cat": "repetitive_noise",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.6414968,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 21,
+            "fp": 2,
+            "fn": 0,
+            "tn": 664,
+            "precision": 0.913,
+            "recall": 1.0,
+            "f1": 0.9545
+          }
+        },
+        "comparative_bashing": {
+          "cat": "comparative_bashing",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.6010007,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 6,
+            "fp": 1,
+            "fn": 1,
+            "tn": 679,
+            "precision": 0.8571,
+            "recall": 0.8571,
+            "f1": 0.8571
+          }
+        },
+        "pedantic_correction": {
+          "cat": "pedantic_correction",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.75,
+          "threshold": 0.3398001,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 14,
+            "fp": 6,
+            "fn": 5,
+            "tn": 662,
+            "precision": 0.7,
+            "recall": 0.7368,
+            "f1": 0.7179
+          }
+        },
+        "sad_empathy": {
+          "cat": "sad_empathy",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7876807,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 59,
+            "fp": 4,
+            "fn": 4,
+            "tn": 620,
+            "precision": 0.9365,
+            "recall": 0.9365,
+            "f1": 0.9365
+          }
+        },
+        "ritual_gratitude": {
+          "cat": "ritual_gratitude",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.5415236,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 21,
+            "fp": 7,
+            "fn": 2,
+            "tn": 657,
+            "precision": 0.75,
+            "recall": 0.913,
+            "f1": 0.8235
+          }
+        },
+        "ritual_mourning": {
+          "cat": "ritual_mourning",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7846008,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 28,
+            "fp": 1,
+            "fn": 0,
+            "tn": 658,
+            "precision": 0.9655,
+            "recall": 1.0,
+            "f1": 0.9825
+          }
+        },
+        "collective_chant": {
+          "cat": "collective_chant",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.9795904,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 12,
+            "fp": 0,
+            "fn": 2,
+            "tn": 673,
+            "precision": 1.0,
+            "recall": 0.8571,
+            "f1": 0.9231
+          }
+        },
+        "moral_platitude": {
+          "cat": "moral_platitude",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8235633,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 14,
+            "fp": 0,
+            "fn": 6,
+            "tn": 667,
+            "precision": 1.0,
+            "recall": 0.7,
+            "f1": 0.8235
+          }
+        },
+        "formulaic_emotion": {
+          "cat": "formulaic_emotion",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.5,
+          "threshold": 0.4065269,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 45,
+            "fp": 3,
+            "fn": 10,
+            "tn": 629,
+            "precision": 0.9375,
+            "recall": 0.8182,
+            "f1": 0.8738
+          }
+        },
+        "moral_lecture": {
+          "cat": "moral_lecture",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.5264375,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 17,
+            "fp": 7,
+            "fn": 13,
+            "tn": 650,
+            "precision": 0.7083,
+            "recall": 0.5667,
+            "f1": 0.6296
+          }
+        }
+      }
+    },
+    "high_recall": {
+      "global_threshold_delta": 0.0,
+      "union_metrics": {
+        "tp": 301,
+        "fp": 47,
+        "fn": 12,
+        "tn": 327,
+        "precision": 0.8649,
+        "recall": 0.9617,
+        "f1": 0.9107
+      },
+      "natural_120_metrics": {
+        "tp": 8,
+        "fp": 3,
+        "fn": 5,
+        "tn": 104,
+        "precision": 0.7273,
+        "recall": 0.6154,
+        "f1": 0.6667
+      },
+      "categories": {
+        "budget_meta": {
+          "cat": "budget_meta",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8385283,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 15,
+            "fp": 2,
+            "fn": 0,
+            "tn": 670,
+            "precision": 0.8824,
+            "recall": 1.0,
+            "f1": 0.9375
+          }
+        },
+        "art_meta": {
+          "cat": "art_meta",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.15,
+          "threshold": 0.6956974,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 21,
+            "fp": 6,
+            "fn": 1,
+            "tn": 659,
+            "precision": 0.7778,
+            "recall": 0.9545,
+            "f1": 0.8571
+          }
+        },
+        "spoiler_direct": {
+          "cat": "spoiler_direct",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.8502786,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 5,
+            "fp": 2,
+            "fn": 2,
+            "tn": 678,
+            "precision": 0.7143,
+            "recall": 0.7143,
+            "f1": 0.7143
+          }
+        },
+        "spoiler_hint": {
+          "cat": "spoiler_hint",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7881076,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 37,
+            "fp": 4,
+            "fn": 0,
+            "tn": 646,
+            "precision": 0.9024,
+            "recall": 1.0,
+            "f1": 0.9487
+          }
+        },
+        "viewing_directives": {
+          "cat": "viewing_directives",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.941877,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 23,
+            "fp": 3,
+            "fn": 7,
+            "tn": 654,
+            "precision": 0.8846,
+            "recall": 0.7667,
+            "f1": 0.8214
+          }
+        },
+        "audience_police": {
+          "cat": "audience_police",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.75,
+          "threshold": 0.1948032,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 25,
+            "fp": 15,
+            "fn": 7,
+            "tn": 640,
+            "precision": 0.625,
+            "recall": 0.7812,
+            "f1": 0.6944
+          }
+        },
+        "moral_judgement": {
+          "cat": "moral_judgement",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "top3",
+          "alpha": 0.5,
+          "threshold": 0.4586675,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 19,
+            "fp": 6,
+            "fn": 10,
+            "tn": 652,
+            "precision": 0.76,
+            "recall": 0.6552,
+            "f1": 0.7037
+          }
+        },
+        "plot_nitpick": {
+          "cat": "plot_nitpick",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.15,
+          "threshold": 0.7333399,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 9,
+            "fp": 2,
+            "fn": 1,
+            "tn": 675,
+            "precision": 0.8182,
+            "recall": 0.9,
+            "f1": 0.8571
+          }
+        },
+        "anyone_here": {
+          "cat": "anyone_here",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8684121,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "tn": 680,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "repetitive_noise": {
+          "cat": "repetitive_noise",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.6414968,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 21,
+            "fp": 2,
+            "fn": 0,
+            "tn": 664,
+            "precision": 0.913,
+            "recall": 1.0,
+            "f1": 0.9545
+          }
+        },
+        "comparative_bashing": {
+          "cat": "comparative_bashing",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.6010007,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 6,
+            "fp": 1,
+            "fn": 1,
+            "tn": 679,
+            "precision": 0.8571,
+            "recall": 0.8571,
+            "f1": 0.8571
+          }
+        },
+        "pedantic_correction": {
+          "cat": "pedantic_correction",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.75,
+          "threshold": 0.3398001,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 14,
+            "fp": 6,
+            "fn": 5,
+            "tn": 662,
+            "precision": 0.7,
+            "recall": 0.7368,
+            "f1": 0.7179
+          }
+        },
+        "sad_empathy": {
+          "cat": "sad_empathy",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.5,
+          "threshold": 0.3814142,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 61,
+            "fp": 7,
+            "fn": 2,
+            "tn": 617,
+            "precision": 0.8971,
+            "recall": 0.9683,
+            "f1": 0.9313
+          }
+        },
+        "ritual_gratitude": {
+          "cat": "ritual_gratitude",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "top3",
+          "alpha": 0.75,
+          "threshold": 0.1846147,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 23,
+            "fp": 14,
+            "fn": 0,
+            "tn": 650,
+            "precision": 0.6216,
+            "recall": 1.0,
+            "f1": 0.7667
+          }
+        },
+        "ritual_mourning": {
+          "cat": "ritual_mourning",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7846008,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 28,
+            "fp": 1,
+            "fn": 0,
+            "tn": 658,
+            "precision": 0.9655,
+            "recall": 1.0,
+            "f1": 0.9825
+          }
+        },
+        "collective_chant": {
+          "cat": "collective_chant",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7753112,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 13,
+            "fp": 5,
+            "fn": 1,
+            "tn": 668,
+            "precision": 0.7222,
+            "recall": 0.9286,
+            "f1": 0.8125
+          }
+        },
+        "moral_platitude": {
+          "cat": "moral_platitude",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.75,
+          "threshold": 0.2122751,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 15,
+            "fp": 6,
+            "fn": 5,
+            "tn": 661,
+            "precision": 0.7143,
+            "recall": 0.75,
+            "f1": 0.7317
+          }
+        },
+        "formulaic_emotion": {
+          "cat": "formulaic_emotion",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "top3",
+          "alpha": 0.15,
+          "threshold": 0.7134399,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 47,
+            "fp": 25,
+            "fn": 8,
+            "tn": 607,
+            "precision": 0.6528,
+            "recall": 0.8545,
+            "f1": 0.7402
+          }
+        },
+        "moral_lecture": {
+          "cat": "moral_lecture",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7056848,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 18,
+            "fp": 10,
+            "fn": 12,
+            "tn": 647,
+            "precision": 0.6429,
+            "recall": 0.6,
+            "f1": 0.6207
+          }
+        }
+      }
+    },
+    "aggressive": {
+      "global_threshold_delta": 0.0,
+      "union_metrics": {
+        "tp": 303,
+        "fp": 62,
+        "fn": 10,
+        "tn": 312,
+        "precision": 0.8301,
+        "recall": 0.9681,
+        "f1": 0.8938
+      },
+      "natural_120_metrics": {
+        "tp": 8,
+        "fp": 8,
+        "fn": 5,
+        "tn": 99,
+        "precision": 0.5,
+        "recall": 0.6154,
+        "f1": 0.5517
+      },
+      "categories": {
+        "budget_meta": {
+          "cat": "budget_meta",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8385283,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 15,
+            "fp": 2,
+            "fn": 0,
+            "tn": 670,
+            "precision": 0.8824,
+            "recall": 1.0,
+            "f1": 0.9375
+          }
+        },
+        "art_meta": {
+          "cat": "art_meta",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.15,
+          "threshold": 0.6956974,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 21,
+            "fp": 6,
+            "fn": 1,
+            "tn": 659,
+            "precision": 0.7778,
+            "recall": 0.9545,
+            "f1": 0.8571
+          }
+        },
+        "spoiler_direct": {
+          "cat": "spoiler_direct",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.8502786,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 5,
+            "fp": 2,
+            "fn": 2,
+            "tn": 678,
+            "precision": 0.7143,
+            "recall": 0.7143,
+            "f1": 0.7143
+          }
+        },
+        "spoiler_hint": {
+          "cat": "spoiler_hint",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7881076,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 37,
+            "fp": 4,
+            "fn": 0,
+            "tn": 646,
+            "precision": 0.9024,
+            "recall": 1.0,
+            "f1": 0.9487
+          }
+        },
+        "viewing_directives": {
+          "cat": "viewing_directives",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 1.941877,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 23,
+            "fp": 3,
+            "fn": 7,
+            "tn": 654,
+            "precision": 0.8846,
+            "recall": 0.7667,
+            "f1": 0.8214
+          }
+        },
+        "audience_police": {
+          "cat": "audience_police",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.15,
+          "threshold": 0.6345436,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 27,
+            "fp": 21,
+            "fn": 5,
+            "tn": 634,
+            "precision": 0.5625,
+            "recall": 0.8438,
+            "f1": 0.675
+          }
+        },
+        "moral_judgement": {
+          "cat": "moral_judgement",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "top3",
+          "alpha": 0.5,
+          "threshold": 0.4586675,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 19,
+            "fp": 6,
+            "fn": 10,
+            "tn": 652,
+            "precision": 0.76,
+            "recall": 0.6552,
+            "f1": 0.7037
+          }
+        },
+        "plot_nitpick": {
+          "cat": "plot_nitpick",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.15,
+          "threshold": 0.7333399,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 9,
+            "fp": 2,
+            "fn": 1,
+            "tn": 675,
+            "precision": 0.8182,
+            "recall": 0.9,
+            "f1": 0.8571
+          }
+        },
+        "anyone_here": {
+          "cat": "anyone_here",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.8684121,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 7,
+            "fp": 0,
+            "fn": 0,
+            "tn": 680,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "repetitive_noise": {
+          "cat": "repetitive_noise",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.6414968,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 21,
+            "fp": 2,
+            "fn": 0,
+            "tn": 664,
+            "precision": 0.913,
+            "recall": 1.0,
+            "f1": 0.9545
+          }
+        },
+        "comparative_bashing": {
+          "cat": "comparative_bashing",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.3,
+          "threshold": 0.6010007,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 6,
+            "fp": 1,
+            "fn": 1,
+            "tn": 679,
+            "precision": 0.8571,
+            "recall": 0.8571,
+            "f1": 0.8571
+          }
+        },
+        "pedantic_correction": {
+          "cat": "pedantic_correction",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.75,
+          "threshold": 0.3398001,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 14,
+            "fp": 6,
+            "fn": 5,
+            "tn": 662,
+            "precision": 0.7,
+            "recall": 0.7368,
+            "f1": 0.7179
+          }
+        },
+        "sad_empathy": {
+          "cat": "sad_empathy",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.5,
+          "threshold": 0.3814142,
+          "use_strong_regex": false,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 61,
+            "fp": 7,
+            "fn": 2,
+            "tn": 617,
+            "precision": 0.8971,
+            "recall": 0.9683,
+            "f1": 0.9313
+          }
+        },
+        "ritual_gratitude": {
+          "cat": "ritual_gratitude",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "top3",
+          "alpha": 0.75,
+          "threshold": 0.1846147,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 23,
+            "fp": 14,
+            "fn": 0,
+            "tn": 650,
+            "precision": 0.6216,
+            "recall": 1.0,
+            "f1": 0.7667
+          }
+        },
+        "ritual_mourning": {
+          "cat": "ritual_mourning",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7846008,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 28,
+            "fp": 1,
+            "fn": 0,
+            "tn": 658,
+            "precision": 0.9655,
+            "recall": 1.0,
+            "f1": 0.9825
+          }
+        },
+        "collective_chant": {
+          "cat": "collective_chant",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7753112,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 13,
+            "fp": 5,
+            "fn": 1,
+            "tn": 668,
+            "precision": 0.7222,
+            "recall": 0.9286,
+            "f1": 0.8125
+          }
+        },
+        "moral_platitude": {
+          "cat": "moral_platitude",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7348498,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 16,
+            "fp": 16,
+            "fn": 4,
+            "tn": 651,
+            "precision": 0.5,
+            "recall": 0.8,
+            "f1": 0.6154
+          }
+        },
+        "formulaic_emotion": {
+          "cat": "formulaic_emotion",
+          "mode": "retrieval_raw",
+          "pool": "top3",
+          "negative_pool": "top3",
+          "alpha": 0.15,
+          "threshold": 0.6850047,
+          "use_strong_regex": true,
+          "semantic_gate": false,
+          "metrics": {
+            "tp": 53,
+            "fp": 39,
+            "fn": 2,
+            "tn": 593,
+            "precision": 0.5761,
+            "recall": 0.9636,
+            "f1": 0.7211
+          }
+        },
+        "moral_lecture": {
+          "cat": "moral_lecture",
+          "mode": "retrieval_raw",
+          "pool": "top1",
+          "negative_pool": "max",
+          "alpha": 0.0,
+          "threshold": 0.7056848,
+          "use_strong_regex": true,
+          "semantic_gate": true,
+          "metrics": {
+            "tp": 18,
+            "fp": 10,
+            "fn": 12,
+            "tn": 647,
+            "precision": 0.6429,
+            "recall": 0.6,
+            "f1": 0.6207
+          }
+        }
+      }
+    }
+  },
+  "mode_comparison": {
+    "classification": {
+      "balanced": {
+        "union": {
+          "tp": 287,
+          "fp": 23,
+          "fn": 26,
+          "tn": 351,
+          "precision": 0.9258,
+          "recall": 0.9169,
+          "f1": 0.9213
+        },
+        "macro_f1": 0.8511,
+        "micro_per_category": {
+          "tp": 388,
+          "fp": 49,
+          "fn": 81,
+          "tn": 12535,
+          "precision": 0.8879,
+          "recall": 0.8273,
+          "f1": 0.8565
+        }
+      },
+      "high_recall": {
+        "union": {
+          "tp": 299,
+          "fp": 61,
+          "fn": 14,
+          "tn": 313,
+          "precision": 0.8306,
+          "recall": 0.9553,
+          "f1": 0.8886
+        },
+        "macro_f1": 0.8139,
+        "micro_per_category": {
+          "tp": 409,
+          "fp": 131,
+          "fn": 60,
+          "tn": 12453,
+          "precision": 0.7574,
+          "recall": 0.8721,
+          "f1": 0.8107
+        }
+      },
+      "aggressive": {
+        "union": {
+          "tp": 303,
+          "fp": 97,
+          "fn": 10,
+          "tn": 277,
+          "precision": 0.7575,
+          "recall": 0.9681,
+          "f1": 0.8499
+        },
+        "macro_f1": 0.7902,
+        "micro_per_category": {
+          "tp": 420,
+          "fp": 230,
+          "fn": 49,
+          "tn": 12354,
+          "precision": 0.6462,
+          "recall": 0.8955,
+          "f1": 0.7507
+        }
+      }
+    },
+    "similarity": {
+      "balanced": {
+        "union": {
+          "tp": 289,
+          "fp": 31,
+          "fn": 24,
+          "tn": 343,
+          "precision": 0.9031,
+          "recall": 0.9233,
+          "f1": 0.9131
+        },
+        "macro_f1": 0.8358,
+        "micro_per_category": {
+          "tp": 390,
+          "fp": 66,
+          "fn": 79,
+          "tn": 12518,
+          "precision": 0.8553,
+          "recall": 0.8316,
+          "f1": 0.8432
+        }
+      },
+      "high_recall": {
+        "union": {
+          "tp": 298,
+          "fp": 54,
+          "fn": 15,
+          "tn": 320,
+          "precision": 0.8466,
+          "recall": 0.9521,
+          "f1": 0.8962
+        },
+        "macro_f1": 0.8061,
+        "micro_per_category": {
+          "tp": 399,
+          "fp": 123,
+          "fn": 70,
+          "tn": 12461,
+          "precision": 0.7644,
+          "recall": 0.8507,
+          "f1": 0.8052
+        }
+      },
+      "aggressive": {
+        "union": {
+          "tp": 299,
+          "fp": 66,
+          "fn": 14,
+          "tn": 308,
+          "precision": 0.8192,
+          "recall": 0.9553,
+          "f1": 0.882
+        },
+        "macro_f1": 0.7978,
+        "micro_per_category": {
+          "tp": 408,
+          "fp": 148,
+          "fn": 61,
+          "tn": 12436,
+          "precision": 0.7338,
+          "recall": 0.8699,
+          "f1": 0.7961
+        }
+      }
+    },
+    "retrieval_raw": {
+      "balanced": {
+        "union": {
+          "tp": 293,
+          "fp": 30,
+          "fn": 20,
+          "tn": 344,
+          "precision": 0.9071,
+          "recall": 0.9361,
+          "f1": 0.9214
+        },
+        "macro_f1": 0.8478,
+        "micro_per_category": {
+          "tp": 394,
+          "fp": 61,
+          "fn": 75,
+          "tn": 12523,
+          "precision": 0.8659,
+          "recall": 0.8401,
+          "f1": 0.8528
+        }
+      },
+      "high_recall": {
+        "union": {
+          "tp": 301,
+          "fp": 47,
+          "fn": 12,
+          "tn": 327,
+          "precision": 0.8649,
+          "recall": 0.9617,
+          "f1": 0.9107
+        },
+        "macro_f1": 0.8236,
+        "micro_per_category": {
+          "tp": 407,
+          "fp": 117,
+          "fn": 62,
+          "tn": 12467,
+          "precision": 0.7767,
+          "recall": 0.8678,
+          "f1": 0.8197
+        }
+      },
+      "aggressive": {
+        "union": {
+          "tp": 303,
+          "fp": 62,
+          "fn": 10,
+          "tn": 312,
+          "precision": 0.8301,
+          "recall": 0.9681,
+          "f1": 0.8938
+        },
+        "macro_f1": 0.8155,
+        "micro_per_category": {
+          "tp": 416,
+          "fp": 147,
+          "fn": 53,
+          "tn": 12437,
+          "precision": 0.7389,
+          "recall": 0.887,
+          "f1": 0.8062
+        }
+      }
+    },
+    "retrieval_prefix": {
+      "balanced": {
+        "union": {
+          "tp": 295,
+          "fp": 39,
+          "fn": 18,
+          "tn": 335,
+          "precision": 0.8832,
+          "recall": 0.9425,
+          "f1": 0.9119
+        },
+        "macro_f1": 0.8354,
+        "micro_per_category": {
+          "tp": 397,
+          "fp": 71,
+          "fn": 72,
+          "tn": 12513,
+          "precision": 0.8483,
+          "recall": 0.8465,
+          "f1": 0.8474
+        }
+      },
+      "high_recall": {
+        "union": {
+          "tp": 297,
+          "fp": 48,
+          "fn": 16,
+          "tn": 326,
+          "precision": 0.8609,
+          "recall": 0.9489,
+          "f1": 0.9027
+        },
+        "macro_f1": 0.8198,
+        "micro_per_category": {
+          "tp": 403,
+          "fp": 95,
+          "fn": 66,
+          "tn": 12489,
+          "precision": 0.8092,
+          "recall": 0.8593,
+          "f1": 0.8335
+        }
+      },
+      "aggressive": {
+        "union": {
+          "tp": 302,
+          "fp": 83,
+          "fn": 11,
+          "tn": 291,
+          "precision": 0.7844,
+          "recall": 0.9649,
+          "f1": 0.8653
+        },
+        "macro_f1": 0.778,
+        "micro_per_category": {
+          "tp": 412,
+          "fp": 191,
+          "fn": 57,
+          "tn": 12393,
+          "precision": 0.6833,
+          "recall": 0.8785,
+          "f1": 0.7687
+        }
+      }
+    }
+  },
+  "multimode_per_category_oracle": [
+    {
+      "preset": "balanced",
+      "union": {
+        "tp": 290,
+        "fp": 25,
+        "fn": 23,
+        "tn": 349,
+        "precision": 0.9206,
+        "recall": 0.9265,
+        "f1": 0.9236
+      },
+      "macro_f1": 0.8547,
+      "modes": {
+        "classification": 15,
+        "retrieval_raw": 2,
+        "similarity": 1,
+        "retrieval_prefix": 1
+      }
+    },
+    {
+      "preset": "high_recall",
+      "union": {
+        "tp": 298,
+        "fp": 43,
+        "fn": 15,
+        "tn": 331,
+        "precision": 0.8739,
+        "recall": 0.9521,
+        "f1": 0.9113
+      },
+      "macro_f1": 0.8379,
+      "modes": {
+        "classification": 11,
+        "retrieval_prefix": 4,
+        "similarity": 3,
+        "retrieval_raw": 1
+      }
+    }
+  ],
+  "warning": "All 687 human review cases, including random-natural 120, participated in model mode, regex, thresholds and gate calibration. In-sample scores do not estimate new-video generalization; high-recall presets have explicit natural-false-positive guards."
+}

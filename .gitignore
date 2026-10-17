@@ -1,0 +1,46 @@
+# Local device secrets and Tampermonkey-generated scripts (NEVER COMMIT)
+browser_filter/state/
+browser_filter/bilibili_ai_filter.user.js
+browser_filter/bilibili_ai_filter_loader.user.js
+*.env
+.env.*
+*.token
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Models, caches, datasets, local test outputs
+models/
+data/
+results/
+hf-cache/
+uv-cache/
+indexes/
+test_output/
+browser_filter/logs/
+logs/
+*.log
+*.pid
+*.sqlite
+*.db
+*.jsonl
+*.har
+*.zip
+*.safetensors
+*.bin
+
+# Python, virtualenvs, editors, local IDE tools
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+.venv-*/
+venv/
+.env/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

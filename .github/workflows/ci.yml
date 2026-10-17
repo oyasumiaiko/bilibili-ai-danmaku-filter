@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install lightweight test dependencies
+        run: python -m pip install "numpy>=2.0,<3"
+      - name: Syntax and offline functional checks
+        run: |
+          python -m compileall -q browser_filter scripts tests/test_release_core.py
+          python -m unittest discover -s tests -p "test_release_*.py" -v
+      - name: Verify generated credentials are ignored
+        run: |
+          git check-ignore browser_filter/state/local_auth.json
+          git check-ignore browser_filter/bilibili_ai_filter.user.js
+          git check-ignore browser_filter/bilibili_ai_filter_loader.user.js
+      - name: Audit staged distribution for secrets and prohibited artifacts
+        run: python scripts/audit_release.py
+  javascript-syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: |
+          node --check browser_filter/bilibili_ai_filter.template.user.js
+          node --check browser_filter/diagnostics_module.js
+          node --check browser_filter/bilibili_ai_filter_loader.template.user.js
