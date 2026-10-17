@@ -4,7 +4,7 @@ A **local, CPU-based semantic danmaku filter for Bilibili** with 19 independentl
 
 **简体中文 | [English](README.en.md)**
 
-> 当前公开发布准备版：v1.3.0（用户脚本） / v1.1.0（本地推理服务）。仓库目前可以作为私有项目使用；不依赖付费模型 API。项目为独立社区工具，与哔哩哔哩及 Google 无官方关联。
+> 当前公开版本：v1.3.0（用户脚本） / v1.1.0（本地推理服务）。无需付费模型 API。项目为独立社区工具，与哔哩哔哩及 Google 无官方关联。
 
 ![右侧弹幕诊断测试预览](docs/media/diagnostics-demo.png)
 
@@ -134,10 +134,27 @@ python browser_filter/backend.py
 
 原始抓取数据、手动标注的第三方弹幕、浏览器个人资料、调试 HAR 和历史工程缓存**均不包含在此仓库**。不同视频/类别可能存在误判、漏判。
 
+## 与 Jev-like 决策模型的实测对比
+
+我们在同一台 Ryzen 9 5950X 的 CPU 上实际测试了 **[d3-lite（Jev 类）](https://huggingface.co/vllm-sr/d3-lite)** 和 **[GLiNER2.5-multi-Decide](https://huggingface.co/fastino/GLiNER2.5-multi-Decide)**，并在 2026-10-17 对当前发布的 v1.3 过滤器重新跑了相同标注集。任务是**识别中文弹幕中的动画制作、作画与经费话题**；发布版只启用了相关的两类，**不是完整 19 类对照测试**。
+
+| 同数据对照 | **当前 v1.3 high_recall** | GLiNER2.5 | d3-lite |
+| --- | ---: | ---: | ---: |
+| 335 条标注弹幕 F1（135 正、200 负） | **86.1%** | 61.0% | 未跑全量 |
+| 40 条共享子集 F1（20 正、20 负） | **83.3%** | 52.9% | 79.2% |
+| 40 条事后组合优化的最佳 d3-lite F1 | — | — | 82.6%（同样本调参） |
+
+当前 v1.3 在 335 条上仅有 **4 条误屏蔽**，GLiNER 中文三分类配置有 **38 条**。CPU 热态完整分类调用的 p95 为 **78.5ms**（仅 97/335 条需要实际嵌入）；d3-lite 在本机参考 CPU 实现中，**单个 Yes/No 问题**中位约 **2.6 秒**，七个问题约 **12.6 秒**。不同模型的线程、样本数与问题数量不同，这些不是严格统一的测速条件。
+
+早期针对制作话题单独优化的 Embedding 规则曾达到 **335 条 F1 91.8%**，但它**不是**当前发布的 19 类规则，不能混淆。另外上述数据已参与规则或提示选择，属于**样本内开发测试**，不是独立泛化基准。原生 Jev、Jevlike 与 JevEmbed 尚无同任务实测分数，不能宣称全面优于它们。
+
+**[查看完整模型对比、混淆矩阵、CPU 延迟、限制与可复算数据 →](docs/BENCHMARKS.md)**
+
 ## 仓库结构
 
 ```text
 assets/                   校准参数与约 1.1 MB 的参考向量
+benchmarks/               Jev-like/GLiNER 对照汇总、离线指标计算工具
 browser_filter/           HTTP 后端、油猴模板、右侧诊断与本地构建器
 config/                   19 类规则与参数示例
 docs/                     原理、设置与隐私说明
@@ -146,7 +163,7 @@ tests/                    无模型离线测试与可选浏览器集成测试
 .github/workflows/ci.yml  离线 CI（不下载模型、不访问 B 站）
 ```
 
-详细说明：[安装排障](docs/TROUBLESHOOTING.md) · [架构与数据流](docs/ARCHITECTURE.md) · [隐私与数据](docs/PRIVACY.md) · [English README](README.en.md)
+详细说明：[模型对照与 Benchmark](docs/BENCHMARKS.md) · [安装排障](docs/TROUBLESHOOTING.md) · [架构与数据流](docs/ARCHITECTURE.md) · [隐私与数据](docs/PRIVACY.md) · [English README](README.en.md)
 
 ## 安全与许可
 

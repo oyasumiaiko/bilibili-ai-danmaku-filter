@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "experiment_dates": [
+    "2026-10-16",
+    "2026-10-17"
+  ],
+  "purpose": "Comparison for short Chinese anime-production/meta danmaku binary decisions; not a 19-category benchmark.",
+  "platform": {
+    "cpu": "AMD Ryzen 9 5950X",
+    "os": "Windows",
+    "gpu_used": false,
+    "thread_counts": "Recorded separately per method; not normalized."
+  },
+  "label_definition": {
+    "positive": "Anime production, drawing, storyboarding, budget, static/PPT, CG, frame/3D production talk",
+    "negative": "Story/characters/general chat/other not-production comments"
+  },
+  "data_provenance": {
+    "pool_335": "335 manually reviewed real Bilibili comments (135 positive / 200 negative), with 18 ambiguous excluded from 353 annotated source comments.",
+    "sample_40": "Fixed stratified subset of the 335: 20 positive / 20 negative, sampled with a recorded 20261016 seed.",
+    "data_distribution": "Convenience/review sample, not a randomly drawn, deployment-representative distribution.",
+    "leakage": "The historical EmbeddingGemma classifier and current 19-category rule family were tuned using overlapping annotated data; this is in-sample development evidence. Threshold and prompt exploration also reused cases.",
+    "copyright_and_privacy": "Only aggregate metrics are published. Raw Bilibili comments, case identifiers, original manual annotations, private model logs and per-row predictions are not distributed."
+  },
+  "same_40": {
+    "n": 40,
+    "positive": 20,
+    "negative": 20,
+    "methods": [
+      {
+        "id": "current_v13_high_recall",
+        "model": "EmbeddingGemma 2 + current v1.3 19-category runtime",
+        "setup": "high_recall; enable_only=budget_meta,art_meta",
+        "tp": 15,
+        "fp": 1,
+        "fn": 5,
+        "tn": 19,
+        "precision": 0.9375,
+        "recall": 0.75,
+        "f1": 0.8333,
+        "notes": "Exactly shipped v1.3 policy (two production-related classes activated); this preset participates in prior category tuning."
+      },
+      {
+        "id": "current_v13_balanced",
+        "model": "EmbeddingGemma 2 + current v1.3 19-category runtime",
+        "setup": "balanced; enable_only=budget_meta,art_meta",
+        "tp": 15,
+        "fp": 2,
+        "fn": 5,
+        "tn": 18,
+        "precision": 0.8824,
+        "recall": 0.75,
+        "f1": 0.8108,
+        "notes": "Alternative standard shipped preset."
+      },
+      {
+        "id": "historical_rules",
+        "model": "EmbeddingGemma 2 + historical topic-tuned rules",
+        "setup": "EmbeddingGemma2_final_rules",
+        "tp": 18,
+        "fp": 0,
+        "fn": 2,
+        "tn": 20,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9474,
+        "notes": "Older production-topic-specific optimized classifier, NOT identical to the current 19-category runtime."
+      },
+      {
+        "id": "d3_lite_5_noul_or_055",
+        "model": "d3-lite",
+        "setup": "OR(production,budget,drawing,ppt,3d) with p_yes >= 0.55; no supervised fine-tuning",
+        "tp": 19,
+        "fp": 9,
+        "fn": 1,
+        "tn": 11,
+        "precision": 0.6786,
+        "recall": 0.95,
+        "f1": 0.7917,
+        "notes": "Five independent yes/no topics (production, budget, drawing, PPT, 3D) combined with OR."
+      },
+      {
+        "id": "gliner_direct_3way",
+        "model": "GLiNER2.5-multi-Decide",
+        "setup": "gliner_multiclass_original",
+        "tp": 9,
+        "fp": 5,
+        "fn": 11,
+        "tn": 15,
+        "precision": 0.6429,
+        "recall": 0.45,
+        "f1": 0.5294,
+        "notes": "Multilingual direct 3-label production vs story vs other; Chinese char tokenizer."
+      },
+      {
+        "id": "gliner_seven_yesno_or",
+        "model": "GLiNER2.5-multi-Decide",
+        "setup": "gliner_simple_yesno_OR",
+        "tp": 7,
+        "fp": 7,
+        "fn": 13,
+        "tn": 13,
+        "precision": 0.5,
+        "recall": 0.35,
+        "f1": 0.4118,
+        "notes": "Seven independent production-related heads combined with OR; no fine-tuning."
+      },
+      {
+        "id": "d3_lite_posthoc_4_noul_or_050",
+        "model": "d3-lite",
+        "setup": "Four heads OR @0.50 chosen on this same 40-item evaluation set",
+        "tp": 19,
+        "fp": 7,
+        "fn": 1,
+        "tn": 13,
+        "precision": 0.7308,
+        "recall": 0.95,
+        "f1": 0.8261,
+        "notes": "Post-hoc selected on the reported cases; use only as an optimistic in-sample upper reference, not held-out performance."
+      }
+    ]
+  },
+  "production_335": {
+    "n": 335,
+    "positive": 135,
+    "negative": 200,
+    "methods": [
+      {
+        "id": "current_v13_high_recall",
+        "model": "EmbeddingGemma 2 + current v1.3 19-category runtime",
+        "setup": "high_recall; enable_only=budget_meta,art_meta",
+        "tp": 105,
+        "fp": 4,
+        "fn": 30,
+        "tn": 196,
+        "precision": 0.9633,
+        "recall": 0.7778,
+        "f1": 0.8607,
+        "notes": "Current shipped runtime on all 335; only the two anime-production categories were active."
+      },
+      {
+        "id": "current_v13_balanced",
+        "model": "EmbeddingGemma 2 + current v1.3 19-category runtime",
+        "setup": "balanced; enable_only=budget_meta,art_meta",
+        "tp": 105,
+        "fp": 6,
+        "fn": 30,
+        "tn": 194,
+        "precision": 0.9459,
+        "recall": 0.7778,
+        "f1": 0.8537,
+        "notes": "Current shipped runtime, alternate profile on identical data."
+      },
+      {
+        "id": "historical_rules",
+        "model": "EmbeddingGemma 2 + historical topic-tuned rules",
+        "setup": "historical production-topic-specialized recommended rules",
+        "tp": 117,
+        "fp": 3,
+        "fn": 18,
+        "tn": 197,
+        "precision": 0.975,
+        "recall": 0.8667,
+        "f1": 0.9176,
+        "notes": "Older, narrower classifier calibrated on this corpus. Do not attribute to current published 19-category runtime."
+      },
+      {
+        "id": "gliner_direct_chinese",
+        "model": "GLiNER2.5-multi-Decide",
+        "setup": "3-label Chinese short labels, word_splitter='char'",
+        "tp": 76,
+        "fp": 38,
+        "fn": 59,
+        "tn": 162,
+        "precision": 0.6667,
+        "recall": 0.563,
+        "f1": 0.6104,
+        "notes": "No supervised fine-tuning for this particular Bilibili task; initial prompts screened against 12 examples."
+      },
+      {
+        "id": "gliner_english_described",
+        "model": "GLiNER2.5-multi-Decide",
+        "setup": "3-label English detailed descriptions, word_splitter='char'",
+        "tp": 133,
+        "fp": 195,
+        "fn": 2,
+        "tn": 5,
+        "precision": 0.4055,
+        "recall": 0.9852,
+        "f1": 0.5745,
+        "notes": "High recall but many false positives for this domain; some prompt selection on earlier examples."
+      }
+    ]
+  },
+  "latency": {
+    "unit": "ms",
+    "warm_model": true,
+    "observations": [
+      {
+        "id": "current_v13_335_high_recall",
+        "model": "EmbeddingGemma 2 + current v1.3",
+        "n": 335,
+        "threads": 4,
+        "workflow": "complete classify() calls, including regex short-circuit; 97 of 335 invoked an embedding",
+        "p50_ms": 0.01,
+        "p95_ms": 78.48,
+        "notes": "Mixed work: median 0.01ms reflects many cheap non-embedding decisions; not representative of embedding-only latency."
+      },
+      {
+        "id": "historical_embedding_96_single",
+        "model": "EmbeddingGemma 2 historical per-text encode",
+        "n": 96,
+        "threads": 4,
+        "workflow": "96 unique texts, batch=1; tokenizer + model + 768d similarities, warm engine",
+        "p50_ms": 67.83,
+        "p95_ms": 87.14,
+        "notes": "Historical specialized prototype; not same 335/40 workload as current model."
+      },
+      {
+        "id": "gliner_chinese_335",
+        "model": "GLiNER2.5-multi-Decide",
+        "n": 335,
+        "threads": 12,
+        "workflow": "one direct 3-label classification per text, warm model",
+        "p50_ms": 88.9,
+        "p95_ms": 108.6,
+        "notes": "335 manually labeled comments; Chinese char tokenizer."
+      },
+      {
+        "id": "gliner_7_head_335",
+        "model": "GLiNER2.5-multi-Decide",
+        "n": 335,
+        "threads": 12,
+        "workflow": "seven independent yes/no heads in a single API call, warm model",
+        "p50_ms": 168.2,
+        "p95_ms": 195.4,
+        "notes": "Same 335 but multiple heads; not the direct 3-way scoring configuration."
+      },
+      {
+        "id": "d3_single_5",
+        "model": "d3-lite",
+        "n": 5,
+        "threads": 12,
+        "workflow": "one noul yes/no question per text; warm PyTorch reference implementation",
+        "p50_ms": 2616.318,
+        "p95_ms": null,
+        "notes": "Only 5 samples; no p95 claimed. CPU path is unoptimized; not comparable with vendor MI325X GPU performance."
+      },
+      {
+        "id": "d3_7_noul_40",
+        "model": "d3-lite",
+        "n": 40,
+        "threads": 12,
+        "workflow": "seven noul yes/no questions evaluated in one system_one call; warm CPU implementation",
+        "p50_ms": 12557.4,
+        "p95_ms": 13849.0,
+        "notes": "Same 40-item sample as accuracy experiment, but more questions than minimal OR baseline."
+      }
+    ],
+    "warning": "Measurements use different model runtimes, thread counts, workload sizes and decision question counts. Ratios are descriptive only; no cross-hardware winner is inferred."
+  },
+  "disk_weights_bytes": {
+    "embeddinggemma2_text_only": 542056448,
+    "gliner25_multi_decide": 1149461028,
+    "d3_lite": 1706027688
+  },
+  "external_decision_models_not_tested": [
+    "TypeSafe Jev API (proprietary hosted)",
+    "vinnylarouge/jevlike (training needed for Chinese task)",
+    "HITsz-TMG/JevEmbed (benchmark / training task different)"
+  ],
+  "source_files_not_published": [
+    "d3_vs_embedding_gliner_same40.json",
+    "d3_simple_boolean_combinations_40.json",
+    "gliner_char_review_results.json",
+    "gliner_simple_yesno_335_metrics.json",
+    "d3_lite_yesno_40_production-budget-drawing-ppt-3d-negative-story_metrics.json",
+    "d3_lite_single_binary_cpu_latency.json",
+    "embeddinggemma2_cpu_live_latency.json",
+    "bili-current-release-comparison-aggregate.json"
+  ],
+  "limitations": [
+    "Quality results are not independent held-out estimates.",
+    "40-item balanced subset does not reflect real-world prevalence.",
+    "Comparators were not identically fine-tuned/optimized for Chinese Bilibili content.",
+    "F1 close differences, especially 0.833 vs 0.826 on 40, do not establish a robust ranking.",
+    "Current v1.3 19-category runtime was evaluated here only as a TWO-CATEGORY anime-production binary classifier; no external 19-way head-to-head benchmark.",
+    "No GPU numbers are implied from the CPU experiments.",
+    "Weight bytes are on-disk checkpoint sizes, not process RAM usage."
+  ]
+}

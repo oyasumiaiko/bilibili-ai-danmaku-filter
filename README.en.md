@@ -71,8 +71,25 @@ The development benchmark involved **687 manually labeled comments also used to 
 
 These figures are **not held-out validation or evidence of real-world accuracy**. There can be false positives and missed targets, especially on unseen video genres.
 
+## Benchmarks vs Jev-like decision models
+
+We ran local CPU comparisons against **[d3-lite](https://huggingface.co/vllm-sr/d3-lite)** (a Jev-like Yes/No decision model) and **[GLiNER2.5-multi-Decide](https://huggingface.co/fastino/GLiNER2.5-multi-Decide)**, then reran the **current v1.3 release** on the same manually reviewed comments. The binary target was **Chinese anime-production/budget/drawing meta-commentary**; only the two relevant categories were enabled. This is **not** a full 19-category benchmark.
+
+| Same-data comparison | **Current v1.3 high_recall** | GLiNER2.5 | d3-lite |
+| --- | ---: | ---: | ---: |
+| 335 comments, binary F1 | **86.1%** | 61.0% | Not measured |
+| 40 shared comments, binary F1 | **83.3%** | 52.9% | 79.2% |
+| d3-lite post-hoc tuned 4-head OR on the same 40 | — | — | 82.6% (development-set-selected) |
+
+On the 335 cases, the current v1.3 pipeline incorrectly blocked **4** non-target comments versus **38** for GLiNER's direct Chinese 3-way schema. On Ryzen 5950X CPU, full-pipeline hot p95 was **78.5ms** (only 97/335 comments required embeddings); d3-lite's CPU reference implementation measured about **2.6 seconds** per one Yes/No question, and **12.6 seconds** per seven-question request. Workload sizes, CPU threads and question counts differ, so these are *engineering observations*, not a controlled speed leaderboard.
+
+The **older specialist** Embedding/rule prototype scored 91.8% F1 on the 335 examples, but **that was not the current released 19-category policy**. All these samples overlap development/tuning data; results are **not held-out estimates**. We did not run TypeSafe Jev, Jevlike or JevEmbed on the same corpus, so no superiority claim is made for those models.
+
+**[Full methodology, confusion matrices, CPU latency and reproducible aggregate calculations →](docs/BENCHMARKS.en.md)**
+
 ## Further reading
 
+- [Decision-model benchmarks](docs/BENCHMARKS.en.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Privacy](docs/PRIVACY.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)

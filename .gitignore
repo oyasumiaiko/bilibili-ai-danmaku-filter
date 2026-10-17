@@ -25,6 +25,8 @@ logs/
 *.sqlite
 *.db
 *.jsonl
+# Synthetic public fixture only; raw/private comment corpora remain ignored.
+!benchmarks/fixtures/synthetic_demo.jsonl
 *.har
 *.zip
 *.safetensors

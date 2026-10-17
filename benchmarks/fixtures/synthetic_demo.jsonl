@@ -1,0 +1,6 @@
+{"id":"synthetic-001","gold":true,"predictions":{"embedding":true,"d3":true,"gliner":true},"latency_ms":{"embedding":52,"d3":350,"gliner":90}}
+{"id":"synthetic-002","gold":true,"predictions":{"embedding":true,"d3":false,"gliner":false},"latency_ms":{"embedding":63,"d3":340,"gliner":92}}
+{"id":"synthetic-003","gold":true,"predictions":{"embedding":false,"d3":true,"gliner":false},"latency_ms":{"embedding":48,"d3":360,"gliner":86}}
+{"id":"synthetic-004","gold":false,"predictions":{"embedding":false,"d3":false,"gliner":false},"latency_ms":{"embedding":50,"d3":365,"gliner":89}}
+{"id":"synthetic-005","gold":false,"predictions":{"embedding":false,"d3":true,"gliner":false},"latency_ms":{"embedding":49,"d3":348,"gliner":87}}
+{"id":"synthetic-006","gold":false,"predictions":{"embedding":false,"d3":false,"gliner":true},"latency_ms":{"embedding":55,"d3":350,"gliner":94}}
